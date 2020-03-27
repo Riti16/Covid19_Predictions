@@ -1,0 +1,1 @@
+web: gunicorn Covid_Predictions_viz:server
