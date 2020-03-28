@@ -23,8 +23,8 @@ from pathlib import Path
 
 
 import os,sys
-#lib_path = r"\\"
-lib_path = r"C:\Users\300068241\Documents\Covid_Data\Daily"
+lib_path = r"\\"
+#lib_path = r"C:\Users\300068241\Documents\Covid_Data\Daily"
 os.chdir(lib_path)
 
 
