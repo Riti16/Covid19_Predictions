@@ -75,7 +75,7 @@ fig.add_trace(go.Bar(x=random_x2, y=random_y2,name='predicted', marker_color='rg
 
 #fig.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)',
 #                  marker_line_width=1.5, opacity=0.6)
-fig.update_layout(title_text='Covid-19 India Predictions', height=400, width=1000, title_font=dict(size=32),hoverlabel_align = 'left')
+fig.update_layout(hoverlabel_align = 'left')
 
 #fig = px.bar(st2, x='Date', y='Total')
 
@@ -89,9 +89,15 @@ app.layout = html.Div([
     dcc.Graph(figure=fig),
     html.H2("Accuracy of the prediction is: 99.86%"),
 ])
-'''
+
 app.layout = html.Div([
     html.H3("National Helpline Numbers: +91-11-23978046 | 1800112545 | 1075", style={'color': 'blue', 'fontSize': 14}),
+    html.H1("Covid-19 India Predictions", style={'color': 'DarkMagenta'}),
+    html.H2("Predicted Number of Cases", style={'color': 'DarkOrchid'}),
+    dat.DataTable(
+    id='table',
+    columns=[{"name": i, "id": i} for i in df.columns],
+    data=df.to_dict('records'),)
     dcc.Graph(figure=fig),
     html.H2("Accuracy of the prediction is: 98.88%", style={'fontSize': 24}), #change here - paste from accuracy_final
     html.P("* 3 initial cases in Kerala recovered; the above chart shows actual covid numbers from the resumption of cases on March 2nd and predicted covid numbers from March 26th.", style={'fontSize': 10}),
@@ -107,5 +113,45 @@ app.layout = html.Div([
     html.P("NOTE: The exponential growth of Corona Virus outbreak is limited to the first phase of the outbreak since the big limitation of Exponential Growth is that it never stops growing. Later, we'll switch to the next step for this model as the epidemic growth is characterized by increasing growth in the beginning period (Epidemiologists have studied these types of outbreaks and it is well known that the first period of an epidemic follows Exponential Growth), but a decreasing growth at a later stage. For example in the Coronavirus case, this maximum limit would be the total number of people in the world, because when everybody is sick, the growth will necessarily diminish.", style={'color': 'DarkBlue', 'fontSize': 10}),
     html.P("Thanks for visting. The source code is on Github which will be made public soon and pull requests will also be accepted in sometime. Stay tuned:)", style={'color': 'DarkGoldenRod', 'fontSize': 10})
 ])
+'''
+
+df=pd.read_csv(r'C:\Users\300068241\Documents\Covid_Data\Daily\Top_Box.csv')
+
+app.layout = html.Div([
+    html.H3("National Helpline Numbers: +91-11-23978046 | 1800112545 | 1075", style={'color': 'blue', 'fontSize': 14}),
+    html.H1("Covid-19 India Predictions", style={'color': 'DarkMagenta'}),
+    html.H2("Predicted Number of Cases", style={'color': 'DarkOrchid'}),
+    dat.DataTable(id='table',
+                  data=df.to_dict('records'),
+                  columns=[{"name": i, "id": i} for i in df.columns],
+                  style_as_list_view=True,
+                  style_cell={'padding': '5px','fontWeight': 'bold', 
+                              'fontSize':'18', 'boxShadow': '0.0'},
+                  #style_header={'backgroundColor': 'rgb(30, 30, 30)','fontWeight': 'bold', 'fontSize':'16', 'font-family':'sans-serif'},
+                  #style_cell={'backgroundColor': 'rgb(50, 50, 50)','color': 'white','padding': '5px','fontWeight': 'bold', 
+                  #            'fontSize':'16', 'font-family':'sans-serif',
+                  #            'minWidth': '70px', 'width': '10px', 'maxWidth': '80px',},
+                  style_header={'backgroundColor': 'white','fontWeight': 'bold','fontSize':'18',},
+                  style_data_conditional=[{'if': {'row_index': 'odd'},
+                                           'backgroundColor': 'rgb(248, 248, 248)'}],
+                  ),
+    #dcc.Graph(figure=fig),
+    html.Div(children = [
+                dcc.Graph(figure=fig)],style = {'display': 'inline-block', 'width': '80%', 'height':'60%'}),
+    html.H2("Accuracy of the prediction is: 98.88%", style={'fontSize': 24}), #change here - paste from accuracy_final
+    html.P("* 3 initial cases in Kerala recovered; the above chart shows actual covid numbers from the resumption of cases on March 2nd and predicted covid numbers from March 26th.", style={'fontSize': 10}),
+    html.P("* Actual Covid Numbers are taken from Ministry Of Health And Family Welfare Covid Website : https://covidindia.org/", style={'fontSize': 10}),
+    html.P("* The above Coronavirus spread numbers are predicted using log transformations, Exponential Growth and linear regression. The Linear Model is only the best estimate of the Exponential Growth function.", style={'fontSize': 10}),
+    html.P("* Possibilities of going further:", style={'fontSize': 10}),
+    html.Ol([
+        html.Li([
+                  "The Exponential Growth will only fit the epidemic at the beginning. Due to measures such as social distancing and lockdown, the growth might not follow exponential pattern or there could be certain error margin that we could inspect in further study.",
+               ] , style={'fontSize': 10}),
+        html.Li(["Also, at some point, healed people will not spread the virus anymore and when (almost) everyone is or has been infected, the growth will stop."])
+    ], style={'fontSize': 10}),
+    html.P("NOTE: The exponential growth of Corona Virus outbreak is limited to the first phase of the outbreak since the big limitation of Exponential Growth is that it never stops growing. Later, we'll switch to the next step for this model as the epidemic growth is characterized by increasing growth in the beginning period (Epidemiologists have studied these types of outbreaks and it is well known that the first period of an epidemic follows Exponential Growth), but a decreasing growth at a later stage. For example in the Coronavirus case, this maximum limit would be the total number of people in the world, because when everybody is sick, the growth will necessarily diminish.", style={'color': 'DarkBlue', 'fontSize': 10}),
+    html.P("Thanks for visting. The source code is on Github which will be made public soon and pull requests will also be accepted in sometime. Stay tuned:)", style={'color': 'DarkGoldenRod', 'fontSize': 10})
+])
+
 if __name__ == '__main__':
     app.run_server(debug=True)
