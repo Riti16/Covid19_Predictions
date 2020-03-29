@@ -119,8 +119,8 @@ df=pd.read_csv(r'Top_Box.csv')
 
 app.layout = html.Div([
     html.H3("National Helpline Numbers: +91-11-23978046 | 1800112545 | 1075", style={'color': 'blue', 'fontSize': 14}),
-    html.H1("Covid-19 India Predictions", style={'color': 'DarkMagenta','fontSize': 32}),
-    html.H2("Predicted Number of Cases", style={'color': 'DarkOrchid','fontSize': 24}),
+    html.H1("Covid-19 India Predictions", style={'color': 'DarkMagenta','fontSize': 32, 'textAlign': 'center'}),
+    html.H2("Predicted Number of Cases", style={'color': 'DarkOrchid','fontSize': 24, 'textAlign': 'center'}),
     html.Div(children = [dat.DataTable(id='table',
                   data=df.to_dict('records'),
                   columns=[{"name": i, "id": i} for i in df.columns],
@@ -131,7 +131,7 @@ app.layout = html.Div([
                   #style_cell={'backgroundColor': 'rgb(50, 50, 50)','color': 'white','padding': '5px','fontWeight': 'bold', 
                   #            'fontSize':'16', 'font-family':'sans-serif',
                   #            'minWidth': '70px', 'width': '10px', 'maxWidth': '80px',},
-                  style_header={'backgroundColor': 'white','fontWeight': 'bold','fontSize':24,'border': '1px GhostWhite',
+                  style_header={'backgroundColor': 'white','fontSize':20,'border': '1px GhostWhite',
                                'textAlign': 'center','sans-serif':'Arial'},
                   style_data_conditional=[{'if': {'row_index': 'odd'},
                                            'backgroundColor': 'rgb(248, 248, 248)'}],
