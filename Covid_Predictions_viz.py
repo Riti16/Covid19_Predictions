@@ -115,7 +115,7 @@ app.layout = html.Div([
 ])
 '''
 
-df=pd.read_csv(r'C:\Users\300068241\Documents\Covid_Data\Daily\Top_Box.csv')
+df=pd.read_csv(r'Top_Box.csv')
 
 app.layout = html.Div([
     html.H3("National Helpline Numbers: +91-11-23978046 | 1800112545 | 1075", style={'color': 'blue', 'fontSize': 14}),
