@@ -126,7 +126,7 @@ app.layout = html.Div([
                   columns=[{"name": i, "id": i} for i in df.columns],
                   style_as_list_view=True,
                   style_cell={'padding': '5px','fontWeight': 'bold','border': '1px GhostWhite',
-                              'fontSize':'32', 'boxShadow': '0.0','textAlign': 'center'},
+                              'fontSize':'48', 'boxShadow': '0.0','textAlign': 'center'},
                   #style_header={'backgroundColor': 'rgb(30, 30, 30)','fontWeight': 'bold', 'fontSize':'16', 'font-family':'sans-serif'},
                   #style_cell={'backgroundColor': 'rgb(50, 50, 50)','color': 'white','padding': '5px','fontWeight': 'bold', 
                   #            'fontSize':'16', 'font-family':'sans-serif',
@@ -135,10 +135,10 @@ app.layout = html.Div([
                                'textAlign': 'center'},
                   style_data_conditional=[{'if': {'row_index': 'odd'},
                                            'backgroundColor': 'rgb(248, 248, 248)'}],
-                  )],style = {'display': 'inline-block', 'width': '80%', 'height':'30%'}),
+                  )],style = {'display': 'inline-block', 'width': '100%', 'height':'30%'}),
     #dcc.Graph(figure=fig),
     html.Div(children = [
-                dcc.Graph(figure=fig)],style = {'display': 'inline-block', 'width': '80%', 'height':'60%'}),
+                dcc.Graph(figure=fig)],style = {'display': 'inline-block', 'width': '100%', 'height':'60%'}),
     html.H2("Accuracy of the prediction is: 98.2%", style={'fontSize': 24}), #change here - paste from accuracy_final
     html.P("* 3 initial cases in Kerala recovered; the above chart shows actual covid numbers from the resumption of cases on March 2nd and predicted covid numbers from March 26th.", style={'fontSize': 10}),
     html.P("* Actual Covid Numbers are taken from Ministry Of Health And Family Welfare Covid Website : https://covidindia.org/", style={'fontSize': 10}),
