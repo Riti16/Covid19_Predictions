@@ -135,11 +135,11 @@ app.layout = html.Div([
                                'textAlign': 'center','sans-serif':'Arial'},
                   style_data_conditional=[{'if': {'row_index': 'odd'},
                                            'backgroundColor': 'rgb(248, 248, 248)'}],
-                  )],style = {'display': 'inline-block', 'width': '70%', 'height':'40%'}
+                  )],style = {'display': 'inline-block', 'width': '80%', 'height':'40%'}
   ),
     #dcc.Graph(figure=fig),
     html.Div(children = [
-                dcc.Graph(figure=fig)],style = {'display': 'inline-block', 'width': '108%', 'height':'60%'}),
+                dcc.Graph(figure=fig)],style = {'display': 'inline-block', 'width': '100%', 'height':'60%'}),
     html.P("Actual vs Predicted Cases", style={'fontSize': 18, 'textAlign': 'center','font-family':'Arial', 'fontWeight': 'bold'}),
     html.H2("Accuracy of the prediction is: 98.2%", style={'fontSize': 24}), #change here - paste from accuracy_final
     html.P("* 3 initial cases in Kerala recovered; the above chart shows actual covid numbers from the resumption of cases on March 2nd and predicted covid numbers from March 26th.", style={'fontSize': 12}),
