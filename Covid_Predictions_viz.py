@@ -119,9 +119,9 @@ df=pd.read_csv(r'Top_Box.csv')
 
 app.layout = html.Div([
     html.H3("National Helpline Numbers: +91-11-23978046 | 1800112545 | 1075", style={'color': 'blue', 'fontSize': 14}),
-    html.H1("Covid-19 India Predictions", style={'color': 'DarkMagenta'}),
-    html.H2("Predicted Number of Cases", style={'color': 'DarkOrchid'}),
-    dat.DataTable(id='table',
+    html.H1("Covid-19 India Predictions", style={'color': 'DarkMagenta','fontSize': 32}),
+    html.H2("Predicted Number of Cases", style={'color': 'DarkOrchid','fontSize': 24}),
+    html.Div(children = [dat.DataTable(id='table',
                   data=df.to_dict('records'),
                   columns=[{"name": i, "id": i} for i in df.columns],
                   style_as_list_view=True,
@@ -134,7 +134,7 @@ app.layout = html.Div([
                   style_header={'backgroundColor': 'white','fontWeight': 'bold','fontSize':'18',},
                   style_data_conditional=[{'if': {'row_index': 'odd'},
                                            'backgroundColor': 'rgb(248, 248, 248)'}],
-                  ),
+                  )],style = {'display': 'inline-block', 'width': '80%', 'height':'30%'}),
     #dcc.Graph(figure=fig),
     html.Div(children = [
                 dcc.Graph(figure=fig)],style = {'display': 'inline-block', 'width': '80%', 'height':'60%'}),
