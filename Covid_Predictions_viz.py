@@ -141,7 +141,7 @@ app.layout = html.Div([
     html.Div(children = [
                 dcc.Graph(figure=fig)],style = {'display': 'inline-block', 'width': '100%', 'height':'60%'}),
     html.P("Actual vs Predicted Cases", style={'fontSize': 18, 'textAlign': 'center','font-family':'Arial', 'fontWeight': 'bold'}),
-    html.H2("Accuracy of the prediction is: 98.2%", style={'fontSize': 24}), #change here - paste from accuracy_final
+    html.H2("Accuracy of the prediction is: 98.62%", style={'fontSize': 24}), #change here - paste from accuracy_final
     html.P("* 3 initial cases in Kerala recovered; the above chart shows actual covid numbers from the resumption of cases on March 2nd and predicted covid numbers from March 26th.", style={'fontSize': 12}),
     html.P("* Actual Covid Numbers are taken from Ministry Of Health And Family Welfare Covid Website : https://covidindia.org/", style={'fontSize': 12}),
     html.P("* The above Coronavirus spread numbers are predicted using log transformations, Exponential Growth and linear regression. The Linear Model is only the best estimate of the Exponential Growth function.", style={'fontSize': 12}),
