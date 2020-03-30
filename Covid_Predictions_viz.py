@@ -135,7 +135,8 @@ app.layout = html.Div([
                                'textAlign': 'center','sans-serif':'Arial'},
                   style_data_conditional=[{'if': {'row_index': 'odd'},
                                            'backgroundColor': 'rgb(248, 248, 248)'}],
-                  )],style = {'display': 'inline-block', 'width': '80%', 'height':'40%','padding-left':10%,'padding-right':10%}
+                  )],style = {'display': 'inline-block', 'width': '80%', 'height':'50%', 'padding-left': '10%',
+                              'padding-right': '10%'}
   ),
     #dcc.Graph(figure=fig),
     html.Div(children = [
