@@ -119,8 +119,8 @@ df=pd.read_csv(r'Top_Box.csv')
 
 app.layout = html.Div([
     html.H3("National Helpline Numbers: +91-11-23978046 | 1800112545 | 1075", style={'color': 'blue', 'fontSize': 14}),
-    html.H1("Covid-19 India Predictions", style={'color': 'DarkMagenta','fontSize': 32, 'textAlign': 'center'}),
-    html.H2("Predicted Number of Cases", style={'color': 'DarkOrchid','fontSize': 24, 'textAlign': 'center'}),
+    html.H1("Covid-19 India Predictions", style={'color': 'DarkMagenta','fontSize': 32, 'fontWeight': 'bold','textAlign': 'center'}),
+    html.H2("Predicted Number of Cases", style={'color': 'DarkOrchid','fontSize': 24, 'fontWeight': 'bold','textAlign': 'center'}),
     html.Div(children = [dat.DataTable(id='table',
                   data=df.to_dict('records'),
                   columns=[{"name": i, "id": i} for i in df.columns],
@@ -146,7 +146,7 @@ app.layout = html.Div([
     html.P("* 3 initial cases in Kerala recovered; the above chart shows actual covid numbers from the resumption of cases on March 2nd and predicted covid numbers from March 26th.", style={'fontSize': 12}),
     html.P("* Actual Covid Numbers are taken from Ministry Of Health And Family Welfare Covid Website : https://covidindia.org/", style={'fontSize': 12}),
     html.P("* The above Coronavirus spread numbers are predicted using log transformations, Exponential Growth and linear regression. The Linear Model is only the best estimate of the Exponential Growth function.", style={'fontSize': 12}),
-    html.P("* We're are continuously doing a lot of model validation, comparing accuracy and other performance metrics of different models and following closely whether future trends follow the selected model.",style={'fontSize': 12}),
+    html.P("* We are continuously doing a lot of model validation, comparing accuracy and other performance metrics of different models and following closely whether future trends follow the selected model.",style={'fontSize': 12}),
     html.P("* Possibilities of going further:", style={'fontSize': 12}),
     html.Ol([
         html.Li([
