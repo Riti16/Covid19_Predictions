@@ -120,6 +120,7 @@ df=pd.read_csv(r'Top_Box.csv')
 app.layout = html.Div([
     html.H3("National Helpline Numbers: +91-11-23978046 | 1800112545 | 1075", style={'color': 'blue', 'fontSize': 14}),
     html.H1("Covid-19 India Predictions", style={'color': 'DarkMagenta','fontSize': 32, 'fontWeight': 'bold','textAlign': 'center'}),
+    html.P("Important Update: According to this model, the maximum growth rate would occur on day 36(i.e. 6th Apr) and the number of infections on 36th day would be 2735. The exponential growth curve will start to flatten after this.", style={'fontSize': 20, 'font-family':'Arial', 'fontWeight': 'bold'}),
     html.H2("Predicted Number of Cases", style={'color': 'DarkOrchid','fontSize': 24, 'fontWeight': 'bold','textAlign': 'center'}),
     html.Div(children = [dat.DataTable(id='table',
                   data=df.to_dict('records'),
@@ -142,9 +143,9 @@ app.layout = html.Div([
     html.Div(children = [
                 dcc.Graph(figure=fig)],style = {'display': 'inline-block', 'width': '110%', 'height':'60%'}),
     html.P("Actual vs Predicted Cases", style={'fontSize': 18, 'textAlign': 'center','font-family':'Arial', 'fontWeight': 'bold'}),
-    html.H2("Accuracy of the prediction is: 98.66%", style={'fontSize': 24}), #change here - paste from accuracy_final
+    html.H2("Accuracy of the prediction is: 98.58%", style={'fontSize': 24}), #change here - paste from accuracy_final
     html.P("* 3 initial cases in Kerala recovered; the above chart shows actual covid numbers from the resumption of cases on March 2nd and predicted covid numbers from March 26th.", style={'fontSize': 12}),
-    html.P("* Actual Covid Numbers are taken from Ministry Of Health And Family Welfare Covid Website : https://covidindia.org/", style={'fontSize': 12}),
+    html.P("* Actual Covid Numbers for all the dates(except for 28th Mar, 29th Mar, 30th Mar and 31st Mar; the numbers are taken from crowdsourced data available here: http://covid19india.org/ ) are taken from Ministry Of Health And Family Welfare Covid Website : https://covidindia.org/ ", style={'fontSize': 12}),
     html.P("* The above Coronavirus spread numbers are predicted using log transformations, Exponential Growth and linear regression. The Linear Model is only the best estimate of the Exponential Growth function.", style={'fontSize': 12}),
     html.P("* We are continuously doing a lot of model validation, comparing accuracy and other performance metrics of different models and following closely whether future trends follow the selected model.",style={'fontSize': 12}),
     html.P("* Possibilities of going further:", style={'fontSize': 12}),
@@ -155,7 +156,15 @@ app.layout = html.Div([
         html.Li(["Also, at some point, healed people will not spread the virus anymore and when (almost) everyone is or has been infected, the growth will stop."])
     ], style={'fontSize': 12}),
     html.P("NOTE: The exponential growth of Corona Virus outbreak is limited to the first phase of the outbreak since the big limitation of Exponential Growth is that it never stops growing. Later, we'll switch to the next step for this model as the epidemic growth is characterized by increasing growth in the beginning period (Epidemiologists have studied these types of outbreaks and it is well known that the first period of an epidemic follows Exponential Growth), but a decreasing growth at a later stage. For example in the Coronavirus case, this maximum limit would be the total number of people in the world, because when everybody is sick, the growth will necessarily diminish.", style={'color': 'DarkBlue', 'fontSize': 12}),
-    html.P("Thanks for visting. The source code is on Github which will be made public soon and pull requests will also be accepted in sometime. Stay tuned:)", style={'color': 'DarkGoldenRod', 'fontSize': 12})
+    html.P("Thanks for visting. The source code is on Github which will be made public soon and pull requests will also be accepted in sometime. Stay tuned:)", style={'color': 'DarkGoldenRod', 'fontSize': 12}),
+    html.Br(),
+    html.P("Website Credits:", style={'textAlign': 'center','font-family':'Cursive','fontSize': 10}),
+    html.P("This site is published by Riti Dass", style={'color': 'Gray',
+                                                         'textAlign': 'center','font-family':'Cursive','fontSize': 10}),
+    html.P("Email us at contact@coronafuture.in", style={'color': 'Gray',
+           'textAlign': 'center','font-family':'Cursive','fontSize': 10}),
 ])
+    
+
 if __name__ == '__main__':
     app.run_server(debug=True)
