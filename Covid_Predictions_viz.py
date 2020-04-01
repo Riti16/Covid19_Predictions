@@ -120,7 +120,7 @@ df=pd.read_csv(r'Top_Box.csv')
 app.layout = html.Div([
     html.H3("National Helpline Numbers: +91-11-23978046 | 1800112545 | 1075", style={'color': 'blue', 'fontSize': 14}),
     html.H1("Covid-19 India Predictions", style={'color': 'DarkMagenta','fontSize': 32, 'fontWeight': 'bold','textAlign': 'center'}),
-    html.P("Important Update: According to this model, the maximum growth rate would occur on day 36(i.e. 6th Apr) and the number of infections on 36th day would be 2735. The exponential growth curve will start to flatten after this.", style={'fontSize': 20, 'font-family':'Arial', 'fontWeight': 'bold'}),
+    html.P("Important Update: According to this model(considering the current growth rate), the maximum growth rate would occur on day 48(i.e. 19th Apr) and the number of infections on 48th day would be 13820. The exponential growth curve will start to flatten after this.", style={'fontSize': 20, 'font-family':'Arial', 'fontWeight': 'bold'}),
     html.H2("Predicted Number of Cases", style={'color': 'DarkOrchid','fontSize': 24, 'fontWeight': 'bold','textAlign': 'center'}),
     html.Div(children = [dat.DataTable(id='table',
                   data=df.to_dict('records'),
@@ -143,7 +143,7 @@ app.layout = html.Div([
     html.Div(children = [
                 dcc.Graph(figure=fig)],style = {'display': 'inline-block', 'width': '110%', 'height':'60%'}),
     html.P("Actual vs Predicted Cases", style={'fontSize': 18, 'textAlign': 'center','font-family':'Arial', 'fontWeight': 'bold'}),
-    html.H2("Accuracy of the prediction is: 98.58%", style={'fontSize': 24}), #change here - paste from accuracy_final
+    html.H2("Accuracy of the prediction is: 97.32%", style={'fontSize': 24}), #change here - paste from accuracy_final
     html.P("* 3 initial cases in Kerala recovered; the above chart shows actual covid numbers from the resumption of cases on March 2nd and predicted covid numbers from March 26th.", style={'fontSize': 12}),
     html.P("* Actual Covid Numbers for all the dates(except for 28th Mar, 29th Mar, 30th Mar and 31st Mar; the numbers are taken from crowdsourced data available here: http://covid19india.org/ ) are taken from Ministry Of Health And Family Welfare Covid Website : https://covidindia.org/ ", style={'fontSize': 12}),
     html.P("* The above Coronavirus spread numbers are predicted using log transformations, Exponential Growth and linear regression. The Linear Model is only the best estimate of the Exponential Growth function.", style={'fontSize': 12}),
