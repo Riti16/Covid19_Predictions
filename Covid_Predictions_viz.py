@@ -120,7 +120,7 @@ df=pd.read_csv(r'Top_Box.csv')
 app.layout = html.Div([
     html.H3("National Helpline Numbers: +91-11-23978046 | 1800112545 | 1075", style={'color': 'blue', 'fontSize': 14}),
     html.H1("Covid-19 India Predictions", style={'color': 'DarkMagenta','fontSize': 32, 'fontWeight': 'bold','textAlign': 'center'}),
-    html.P("Important Update: According to this model(considering the current growth rate), the maximum growth rate would occur on day 48(i.e. 19th Apr) and the number of infections on 48th day would be 13820. The exponential growth curve will start to flatten after this.", style={'fontSize': 20, 'font-family':'Arial', 'fontWeight': 'bold'}),
+    #html.P("Important Update: According to this model(considering the current growth rate), the maximum growth rate would occur on day 48(i.e. 19th Apr) and the number of infections on 48th day would be 13820. The exponential growth curve will start to flatten after this.", style={'fontSize': 20, 'font-family':'Arial', 'fontWeight': 'bold'}),
     html.H2("Predicted Number of Cases", style={'color': 'DarkOrchid','fontSize': 24, 'fontWeight': 'bold','textAlign': 'center'}),
     html.Div(children = [dat.DataTable(id='table',
                   data=df.to_dict('records'),
