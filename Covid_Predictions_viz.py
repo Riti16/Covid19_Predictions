@@ -143,9 +143,9 @@ app.layout = html.Div([
     html.Div(children = [
                 dcc.Graph(figure=fig)],style = {'display': 'inline-block', 'width': '110%', 'height':'60%'}),
     html.P("Actual vs Predicted Cases", style={'fontSize': 18, 'textAlign': 'center','font-family':'Arial', 'fontWeight': 'bold'}),
-    html.H2("Accuracy of the prediction is: 96.11%", style={'fontSize': 24}), #change here - paste from accuracy_final
+    html.H2("Accuracy of the prediction is: 96.45%", style={'fontSize': 24}), #change here - paste from accuracy_final
     html.P("* 3 initial cases in Kerala recovered; the above chart shows actual covid numbers from the resumption of cases on March 2nd and predicted covid numbers from March 26th.", style={'fontSize': 12}),
-    html.P("* Actual Covid Numbers for all the dates(except for 28th Mar, 29th Mar, 30th Mar and 31st Mar; the numbers are taken from crowdsourced data available here: http://covid19india.org/ ) are taken from Ministry Of Health And Family Welfare Covid Website : https://covidindia.org/ ", style={'fontSize': 12}),
+    html.P("* Actual Covid Numbers for weekdays are taken from Ministry Of Health And Family Welfare Covid Website : https://covidindia.org/and and for weekends, the numbers are taken from crowdsourced data available here: http://covid19india.org/ )  ", style={'fontSize': 12}),
     html.P("* The above Coronavirus spread numbers are predicted using log transformations, Exponential Growth and linear regression. The Linear Model is only the best estimate of the Exponential Growth function.", style={'fontSize': 12}),
     html.P("* We are continuously doing a lot of model validation, comparing accuracy and other performance metrics of different models and following closely whether future trends follow the selected model.",style={'fontSize': 12}),
     html.P("* Possibilities of going further:", style={'fontSize': 12}),
