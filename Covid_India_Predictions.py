@@ -35,7 +35,6 @@ data=covid_pred
 import scipy
 import patsy
 
-##OLS algorithm from Statsmodels library is used here. Linear regression is used here to get the initial value component(X0) on which exponential smoothing is performed. Exponential smoothing assigns exponentially decreasing weights over time. This means that exponential smoothing places a bigger emphasis on more recent observations, providing a weighted average. If the data has no trend and no seasonal pattern, then this method of forecasting the time series is essentially used. 
 
 import statsmodels.api as sm
 
