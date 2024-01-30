@@ -8,6 +8,7 @@
 
 
 **Code Breakdown:**
+
 1. Data Preparation:
 The script starts by importing necessary libraries such as pandas, numpy, json, MySQL connector, datetime, requests, and statsmodels.
 It reads a CSV file (total_cases_data.csv) into a Pandas DataFrame (covid_pred).
